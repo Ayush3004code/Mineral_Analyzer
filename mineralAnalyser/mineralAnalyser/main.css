@@ -1,0 +1,30 @@
+.app {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .card-content {
+    padding: 10px 0;
+  }
+  
