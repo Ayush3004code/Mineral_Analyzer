@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for,jsonify
+from flask import Flask, request, render_template, redirect,jsonify
 import os
 import cv2
 import numpy as np
@@ -6,7 +6,8 @@ from sklearn.cluster import KMeans
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from flask import Flask, request, jsonify, render_template, url_for
+from flask import Flask, request, jsonify, render_template
+from urllib.parse import quote as url_quote
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
@@ -163,10 +164,10 @@ def upload_file():
                 "predicted_class":predicted_class,
                 "centers": centers.tolist(),  # Convert NumPy arrays to lists for JSON compatibility
                 "percentages": percentages,
-                "segmented_image": url_for('static', filename=f'images/{segmented_image_path}'),
-                "boundary_image": url_for('static', filename=f'images/{boundary_image_path}'),
-                "bar_chart": url_for('static', filename=f'images/{bar_chart_path}'),
-                "pie_chart": url_for('static', filename=f'images/{pie_chart_path}')
+                "segmented_image": url_quote('static', filename=f'images/{segmented_image_path}'),
+                "boundary_image": url_quote('static', filename=f'images/{boundary_image_path}'),
+                "bar_chart": url_quote('static', filename=f'images/{bar_chart_path}'),
+                "pie_chart": url_quote('static', filename=f'images/{pie_chart_path}')
             }), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
