@@ -6,7 +6,6 @@ from sklearn.cluster import KMeans
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from urllib.parse import quote as url_quote
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
