@@ -6,7 +6,6 @@ from sklearn.cluster import KMeans
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from urllib.parse import quote
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from flask_cors import CORS
@@ -55,7 +54,8 @@ def upload_file():
             predicted_class = CLASS_LABELS[np.argmax(predictions[0])]
 
             return jsonify({
-                "predicted_class": predicted_class
+                "predicted_class": predicted_class,
+                "uploaded_image_path": f"/{UPLOAD_FOLDER}/{file.filename}"
             }), 200
 
         except Exception as e:
